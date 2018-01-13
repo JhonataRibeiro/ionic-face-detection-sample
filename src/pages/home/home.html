@@ -5,10 +5,26 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <video autoplay></video>
+  <!-- <div id="videoContainer">
+    <canvas id="inputCanvas" width="320" height="240" style="display:none"></canvas>
+    <canvas id="overlay" width="320" height="240"></canvas>
+    <video autoplay  width="320" height="240"></video>
+    <canvas id="overlay"  width="320" height="240"></canvas>
+    <canvas id="debug" width="320" height="240"></canvas>
+  </div> -->
+  
+
+  <canvas id="compare" width="320" height="240" style="display:none"></canvas>
+  <video id="vid" autoplay loop width="320" height="240"></video>
+  <canvas  width="320" height="240" #overlay></canvas>
+  <canvas id="debug" width="320" height="240"></canvas>
+
+  <p #gUMMessage></p>
+		<p>Status : <span #headtrackerMessage></span></p>
+		<!-- <p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
+		<br/><br/>
+		<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
+		 -->
+  
+  
 </ion-content>
