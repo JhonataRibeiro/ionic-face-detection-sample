@@ -89,5 +89,7 @@
         <variable name="XWALK_MODE" value="embedded" />
         <variable name="XWALK_MULTIPLEAPK" value="true" />
     </plugin>
-    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-opentok-android-permissions" spec="^1.0.1" />
+    <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
 </widget>
