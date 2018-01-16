@@ -42,7 +42,6 @@ export class HomePage {
 
           let overlayContext = canvasOverlayNe.getContext('2d');
 
-
           canvasOverlayNe.style.position = "absolute";
           canvasOverlayNe.style.top = '0px';
           canvasOverlayNe.style.zIndex = '100001';
@@ -83,7 +82,7 @@ export class HomePage {
     permissions.requestPermission(permissions.CAMERA, function (status) {
       cb(status);
     }, (err) => {
-      console.log('erro on request permissions: ', err);
+      console.log('error on request permissions: ', err);
     });
   }
 
