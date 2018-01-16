@@ -8,8 +8,11 @@ declare let cordova: any;
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public width = 320;    // width of photo which will be captured
+  public height = 0;     // height of photo which will be captured
 
   @ViewChild('overlay') canvasOverlay: ElementRef;
+  @ViewChild('image') canvasImage: ElementRef;
   public canvasOverlayNe: any;
   constructor(public navCtrl: NavController, public platform: Platform) {
 
@@ -48,12 +51,13 @@ export class HomePage {
           var video = document.querySelector('video');
           video.setAttribute('src', win.URL.createObjectURL(stream));
           var htracker = new headtrackr.Tracker();
-          var canvas = document.querySelector('canvas');
+          let canvas = document.querySelector('canvas');
           htracker.init(video, canvas);
           htracker.start();
 
           document.addEventListener("facetrackingEvent", function (event: any) {
             // clear canvas
+            console.log('event: ', event);
             overlayContext.clearRect(0, 0, 320, 240);
             // once we have stable tracking, draw rectangle
             if (event.detection == "CS") {
@@ -81,6 +85,20 @@ export class HomePage {
     }, (err) => {
       console.log('erro on request permissions: ', err);
     });
+  }
+
+  takePhoto() {
+    let thatImage = "";
+    let canvas = this.canvasImage.nativeElement;
+    let videoGet = document.querySelector("video");
+    canvas.width = videoGet.width;
+    canvas.height = videoGet.height;
+    canvas.getContext('2d').drawImage(videoGet, 0, 0, canvas.width, canvas.height);
+    let img = canvas.toDataURL();
+  }
+
+  takeFace() {
+    
   }
 
 }
